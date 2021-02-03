@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event
+  template:
+    metadata:
+      labels:
+        app: event
+    spec:
+      containers:
+        - name: event
+          image: codersauthority/event:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-srv
+spec:
+  selector:
+    app: event
+  # by default it's cluster ip
+  type: ClusterIP
+  ports:
+    - name: event
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
