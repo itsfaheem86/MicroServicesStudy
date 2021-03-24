@@ -30,6 +30,11 @@ const ticketSchema = new mongoose.Schema(
       require: true,
       min: 0,
     },
+    price: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
   {
     toJSON: {
