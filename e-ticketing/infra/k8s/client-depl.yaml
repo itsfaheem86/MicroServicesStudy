@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: us.gcr.io/planar-sun-259909/client
+          image: codersauthority/client
 ---
 apiVersion: v1
 kind: Service
